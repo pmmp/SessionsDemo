@@ -7,6 +7,7 @@ namespace dktapps\SessionsDemo;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\event\player\PlayerJoinEvent;
+use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\plugin\PluginBase;
 
 class Main extends PluginBase implements Listener{
@@ -29,5 +30,13 @@ class Main extends PluginBase implements Listener{
 		$session = Session::get($player);
 
 		$event->setMessage($event->getMessage() . " (ID " . $session->getMyRandomId() . ")");
+	}
+
+	public function onQuit(PlayerQuitEvent $event) : void{
+		$session = Session::get($event->getPlayer());
+
+		//you can save the session data here, e.g. to a mysql database
+		//as an example we'll just print it to the console
+		$this->getLogger()->info("Player " . $session->getMyRandomId() . " quit");
 	}
 }
