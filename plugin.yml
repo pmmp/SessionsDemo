@@ -1,0 +1,7 @@
+---
+name: SessionsDemo
+version: 0.0.1
+main: dktapps\SessionsDemo\Main
+api: 4.10.2
+src-namespace-prefix: dktapps\SessionsDemo
+...
