@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace dktapps\SessionsDemo;
+namespace pmmp\SessionsDemo;
 
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerChatEvent;
