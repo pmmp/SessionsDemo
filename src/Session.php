@@ -36,7 +36,11 @@ final class Session{
 	private static \WeakMap $data;
 
 	public static function get(Player $player) : Session{
-		self::$data ??= new \WeakMap();
+		if(!isset(self::$data)){
+			/** @phpstan-var \WeakMap<Player, Session> $map */
+			$map = new \WeakMap();
+			self::$data = $map;
+		}
 
 		return self::$data[$player] ??= self::loadSessionData($player);
 	}
